@@ -65,32 +65,32 @@ generate_axon <- function(n, tortuosity, sinuosity = FALSE) {
 }
 
 
-n <- 9
-tortuosity <- 1/3
-axon <- generate_axon(n, tortuosity, sin = F)
-# look at the adjacency matrix
-(A <- adj_matrix(axon[[1L]]))
-# compare with plot and table of observations -
-axon[[1L]]
-
-path <- path_finder(axon[[1L]])
-path  ## check path has same sequence as plotted path
-all(path == axon[[2L]]) ## FALSE means at least one node is out of order
-
-
-## now increase `tortuosity` or `n` and see how bad it can get before it falls over!
-
-n <- 12
-tortuosity <- 2/3
-axon <- generate_axon(n, tortuosity, sin = F)
-path <- path_finder(axon[[1L]])
-path  ## check path has same sequence as plotted path
-all(path == axon[[2L]]) ## FALSE means at least one node is out of order
-
-
-## add some sinuosity
-tortuosity <- 1/20
-axon <- generate_axon(n, tortuosity, sin = T)
-path <- path_finder(axon[[1L]])
-path  ## check path has same sequence as plotted path
-all(path == axon[[2L]]) ## FALSE means at least one node is out of order
+# n <- 9
+# tortuosity <- 1/3
+# axon <- generate_axon(n, tortuosity, sin = F)
+# # look at the adjacency matrix
+# (A <- adj_matrix(axon[[1L]]))
+# # compare with plot and table of observations -
+# axon[[1L]]
+# 
+# path <- path_finder(axon[[1L]])
+# path  ## check path has same sequence as plotted path
+# all(path == axon[[2L]]) ## FALSE means at least one node is out of order
+# 
+# 
+# ## now increase `tortuosity` or `n` and see how bad it can get before it falls over!
+# 
+# n <- 12
+# tortuosity <- 2/3
+# axon <- generate_axon(n, tortuosity, sin = F)
+# path <- path_finder(axon[[1L]])
+# path  ## check path has same sequence as plotted path
+# all(path == axon[[2L]]) ## FALSE means at least one node is out of order
+# 
+# 
+# ## add some sinuosity
+# tortuosity <- 1/20
+# axon <- generate_axon(n, tortuosity, sin = T)
+# path <- path_finder(axon[[1L]])
+# path  ## check path has same sequence as plotted path
+# all(path == axon[[2L]]) ## FALSE means at least one node is out of order

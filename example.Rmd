@@ -1,0 +1,49 @@
+---
+title: "Synapse order along axon"
+author: "Bindoff, A."
+date: "16 January 2018"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo = FALSE, warning = FALSE, message = FALSE}
+source("synapse_ordering.R")
+```
+
+```{r}
+n <- 6
+tortuosity <- 1/2
+axon <- generate_axon(n, tortuosity, sin = F)
+# look at the adjacency matrix
+(A <- adj_matrix(axon[[1L]]))
+# compare with plot and table of observations -
+axon[[1L]]
+
+path <- path_finder(axon[[1L]])
+path  ## check path has same sequence as plotted path
+all(path == axon[[2L]]) ## FALSE means at least one node is out of order
+```
+
+#### Now increase `tortuosity` or `n` and see how bad it can get before it falls over!  
+
+```{r}
+n <- 12
+tortuosity <- 3/4
+axon <- generate_axon(n, tortuosity, sin = F)
+path <- path_finder(axon[[1L]])
+path  ## check path has same sequence as plotted path
+all(path == axon[[2L]]) ## FALSE means at least one node is out of order
+```
+
+#### Add some sinuosity
+
+```{r}
+tortuosity <- 1/20
+axon <- generate_axon(n, tortuosity, sin = T)
+path <- path_finder(axon[[1L]])
+path  ## check path has same sequence as plotted path
+all(path == axon[[2L]]) ## FALSE means at least one node is out of order
+```
