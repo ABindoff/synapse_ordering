@@ -65,7 +65,7 @@ generate_axon <- function(n, tortuosity, sinuosity = FALSE) {
 }
 
 
-n <- 6
+n <- 9
 tortuosity <- 1/3
 axon <- generate_axon(n, tortuosity, sin = F)
 # look at the adjacency matrix
