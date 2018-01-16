@@ -53,6 +53,8 @@ while(!all(is.na(A))){
 
 path  ## check path has same sequence as plotted path
 
+all(path == nodes) ## FALSE means at least one node is out of order
+
 ## now increase `tortuosity` or `n` and see how bad it can get before it falls over!
 
 
